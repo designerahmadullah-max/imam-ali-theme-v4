@@ -36,7 +36,7 @@ get_header();
   </div>
 
   <!-- Article content -->
-  <div class="py-14 px-6 md:px-12 lg:px-20 bg-cream">
+  <div class="py-14 px-6 md:px-12 lg:px-20 bg-white">
     <div class="max-w-[800px] mx-auto">
 
       <!-- Category label -->

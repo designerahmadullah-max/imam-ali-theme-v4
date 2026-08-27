@@ -83,22 +83,11 @@ p { margin: 0; }
 .ia-content a { color: #068f5f; text-decoration: underline; text-underline-offset: 3px; }
 .ia-content a:hover { color: #056b47; }
 
-/* ── Blockquote — gold diamond + left bar + italic serif ─────── */
+/* ── Blockquote — gold left bar + italic serif ───────────────── */
 .ia-content blockquote {
-  position: relative;
   margin: 2.5rem 0;
-  padding: 0 0 0 2.2rem;
+  padding: 0.2rem 0 0.2rem 2rem;
   border-left: 3px solid #c8a96e;
-}
-/* Gold diamond bullet at top-left */
-.ia-content blockquote::before {
-  content: "◆";
-  position: absolute;
-  left: -0.6em;
-  top: 0.05em;
-  color: #c8a96e;
-  font-size: 14px;
-  line-height: 1.6;
 }
 /* Quote body — italic serif */
 .ia-content blockquote p {
@@ -136,14 +125,13 @@ p { margin: 0; }
 .ia-content ul,
 .ia-content ol {
   margin: 0 0 1.6em 0;
-  padding: 0;
+  padding: 0 0 0 1.5rem;
   list-style: none;
 }
 .ia-content ul li,
 .ia-content ol li {
   position: relative;
-  padding-left: 1.75rem;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.65em;
   font-size: 16px;
   line-height: 1.75;
   color: rgba(42,27,15,.85);
@@ -152,9 +140,10 @@ p { margin: 0; }
 .ia-content ul li::before {
   content: "◆";
   position: absolute;
-  left: 0;
-  top: 0.32em;
-  font-size: 9px;
+  left: -1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 8px;
   color: #068f5f;
   line-height: 1;
 }
@@ -162,16 +151,16 @@ p { margin: 0; }
 .ia-content ol { counter-reset: ia-list; }
 .ia-content ol li { counter-increment: ia-list; }
 .ia-content ol li::before {
-  content: counter(ia-list, decimal-leading-zero) ".";
+  content: counter(ia-list) ".";
   position: absolute;
-  left: 0;
+  left: -1.4rem;
   top: 0;
   font-family: 'Manrope', sans-serif;
   font-size: 12px;
   font-weight: 800;
   color: #068f5f;
-  letter-spacing: 0.03em;
-  line-height: 1.9;
+  letter-spacing: 0.02em;
+  line-height: 1.75;
 }
 
 /* ── Images in content — rounded corners ─────────────────────── */

@@ -49,14 +49,14 @@
             <?php echo esc_html($ac[0]->name); ?>
           </a>
           <?php endif; ?>
-          <h3 class="font-serif text-[26px] leading-tight text-brown mb-3 group-hover:text-primary transition-colors">
+          <h3 class="font-serif text-[26px] leading-tight text-brown mb-1 group-hover:text-primary transition-colors">
             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
           </h3>
-          <p class="font-sans text-[13px] text-muted leading-relaxed line-clamp-2 mb-6">
+          <p class="font-sans text-[13px] text-muted leading-relaxed line-clamp-2 mb-2">
             <?php the_excerpt(); ?>
           </p>
           <a href="<?php the_permalink(); ?>"
-             class="inline-flex items-center gap-1.5 font-sans font-bold text-[13px] text-brown group-hover:text-primary transition-colors mt-auto pt-2">
+             class="inline-flex items-center gap-1.5 font-sans font-bold text-[13px] text-brown group-hover:text-primary transition-colors mt-5">
             Read More <svg width="10" height="10" fill="none" viewBox="0 0 7 12"><path d="M1 11L6 6L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </a>
         </article>
