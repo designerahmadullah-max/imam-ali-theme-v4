@@ -1,0 +1,291 @@
+/* ── Reset ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Manrope', system-ui, sans-serif;
+  background-color: #f5f0e8;
+  color: #2a1b0f;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+p { margin: 0; }
+
+/* ── Marquee animations ────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-slow {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee      { animation: marquee 50s linear infinite; display: flex; }
+.animate-marquee-slow { animation: marquee-slow 60s linear infinite; display: flex; }
+.marquee-track:hover .animate-marquee,
+.marquee-track:hover .animate-marquee-slow { animation-play-state: paused; }
+
+/* ════════════════════════════════════════════════════════════════
+   ARTICLE CONTENT  (.ia-content)
+   Matches heading sizes / structure used on the homepage
+   ════════════════════════════════════════════════════════════════ */
+.ia-content {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(42,27,15,.9);
+}
+
+/* Paragraph gaps — one clear line of space between paragraphs */
+.ia-content p {
+  margin-top: 0;
+  margin-bottom: 1.6em;
+}
+
+/* Headings — matching homepage size scale */
+.ia-content h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 40px;   /* matches homepage Life & Legacy heading */
+  color: #2a1b0f;
+  line-height: 1.15;
+  margin: 2.8rem 0 1rem;
+}
+.ia-content h3 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 32px;   /* matches homepage featured article title */
+  color: #2a1b0f;
+  line-height: 1.2;
+  margin: 2.2rem 0 0.8rem;
+}
+.ia-content h4 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 24px;   /* matches homepage card title */
+  color: #2a1b0f;
+  line-height: 1.25;
+  margin: 1.8rem 0 0.6rem;
+}
+.ia-content h5 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 20px;
+  color: #2a1b0f;
+  margin: 1.5rem 0 0.5rem;
+}
+
+/* Links */
+.ia-content a { color: #068f5f; text-decoration: underline; text-underline-offset: 3px; }
+.ia-content a:hover { color: #056b47; }
+
+/* ── Blockquote — gold diamond + left bar + italic serif ─────── */
+.ia-content blockquote {
+  position: relative;
+  margin: 2.5rem 0;
+  padding: 0 0 0 2.2rem;
+  border-left: 3px solid #c8a96e;
+}
+/* Gold diamond bullet at top-left */
+.ia-content blockquote::before {
+  content: "◆";
+  position: absolute;
+  left: -0.6em;
+  top: 0.05em;
+  color: #c8a96e;
+  font-size: 14px;
+  line-height: 1.6;
+}
+/* Quote body — italic serif */
+.ia-content blockquote p {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.7;
+  color: #2a1b0f;
+  margin-bottom: 0.75em;
+}
+/* Citation / attribution — gold sans */
+.ia-content blockquote cite,
+.ia-content blockquote footer,
+.ia-content blockquote p:last-child:not(:first-child) {
+  font-family: 'Manrope', sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 700;
+  color: #c8a96e;
+  letter-spacing: 0.02em;
+  display: block;
+  margin-top: 0.5em;
+}
+/* WordPress core quote block with attribution */
+.ia-content .wp-block-quote__citation,
+.ia-content figcaption {
+  font-family: 'Manrope', sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 700;
+  color: #c8a96e;
+}
+
+/* ── Lists ───────────────────────────────────────────────────── */
+.ia-content ul,
+.ia-content ol {
+  margin: 0 0 1.6em 0;
+  padding: 0;
+  list-style: none;
+}
+.ia-content ul li,
+.ia-content ol li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.6em;
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(42,27,15,.85);
+}
+/* Unordered: green diamond bullet */
+.ia-content ul li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 0.32em;
+  font-size: 9px;
+  color: #068f5f;
+  line-height: 1;
+}
+/* Ordered: green number */
+.ia-content ol { counter-reset: ia-list; }
+.ia-content ol li { counter-increment: ia-list; }
+.ia-content ol li::before {
+  content: counter(ia-list, decimal-leading-zero) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #068f5f;
+  letter-spacing: 0.03em;
+  line-height: 1.9;
+}
+
+/* ── Images in content — rounded corners ─────────────────────── */
+.ia-content img,
+.ia-content figure img,
+.ia-content .wp-block-image img {
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+.ia-content figure,
+.ia-content .wp-block-image {
+  margin: 2rem 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.ia-content figcaption,
+.ia-content .wp-block-image figcaption {
+  font-size: 13px;
+  color: #6b5a47;
+  text-align: center;
+  margin-top: 0.6rem;
+  font-style: italic;
+}
+
+/* ── Tables ──────────────────────────────────────────────────── */
+.ia-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.6em;
+  font-size: 15px;
+}
+.ia-content th {
+  background: #2a1b0f;
+  color: white;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 10px 14px;
+  text-align: left;
+}
+.ia-content td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #d9cec0;
+  color: rgba(42,27,15,.85);
+}
+.ia-content tr:nth-child(even) td { background: rgba(42,27,15,.03); }
+
+/* ── WP search form ────────────────────────────────────────────── */
+.search-form { display: flex; gap: 8px; }
+.search-form input[type="search"] {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid #d9cec0;
+  border-radius: 10px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  background: white;
+  color: #2a1b0f;
+  outline: none;
+}
+.search-form input[type="search"]:focus { border-color: #068f5f; }
+.search-form button,
+.search-form input[type="submit"] {
+  padding: 10px 20px;
+  background: #068f5f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.search-form button:hover,
+.search-form input[type="submit"]:hover { background: #056b47; }
+
+/* ── WP pagination ─────────────────────────────────────────────── */
+.page-numbers {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.page-numbers a, .page-numbers span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2a1b0f;
+  border: 1px solid #d9cec0;
+  transition: all 0.2s;
+}
+.page-numbers a:hover { background: #068f5f; color: white; border-color: #068f5f; }
+.page-numbers .current { background: #068f5f; color: white; border-color: #068f5f; }
+.page-numbers .prev, .page-numbers .next { width: auto; padding: 0 16px; }
+
+/* ── Custom logo ───────────────────────────────────────────────── */
+.custom-logo { height: 64px; width: auto; }
+
+/* ── Footer nav menu ───────────────────────────────────────────── */
+.footer-col-nav ul { list-style: none; margin: 0; padding: 0; }
+.footer-col-nav ul li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 6px; }
+.footer-col-nav ul li a {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  color: #4a3828;
+  transition: color 0.2s;
+  line-height: 1.4;
+}
+.footer-col-nav ul li a:hover { color: #068f5f; }
